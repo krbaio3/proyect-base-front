@@ -1,0 +1,34 @@
+{
+  "name": "proyect-base-front",
+  "version": "0.0.1",
+  "description": "Proyecto base para proyectos front",
+  "main": "main.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krbaio3/proyect-base-front.git"
+  },
+  "author": "KrBaIO3 <krbaio3@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/krbaio3/proyect-base-front/issues"
+  },
+  "homepage": "https://github.com/krbaio3/proyect-base-front#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "base",
+    "proyect",
+    "front"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-friendly-formatter": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
+  }
+}
