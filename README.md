@@ -7,7 +7,7 @@ Generador de proyectos proyectos Front
 
 Se agregan pequeños comentarios de donde se puede encontrar información en los mismos ficheros. 
 
-Descripcion carpeta build:
+Descripcion carpeta build DESARROLLO:
 
 archivos:
 
@@ -31,6 +31,20 @@ archivos:
     · dev-server.js: configuración del servidor de pruebas: express + http-proxy-middleware. Para configurar el proxy, se debe de hacer el ./conf/dev.env.js.
 
 
+Descripcion carpeta build PRODUCCION
+se habilita staticos con Gzip. (./config/index.js) Para ello se instala compresion-webpack-plugin
+para ver la diferencia entre chunck, chunkhash y contenthash, mirar este articulo (https://codeburst.io/long-term-caching-of-static-assets-with-webpack-1ecb139adb95)
+
+Añadir a htmlwebpackplugin las siguientes variables a la hora de contruir:
+- title
+- favicon
+
+Las opciones usadas son:
+
+- filename: The file to write the HTML to. Defaults to index.html. You can specify a subdirectory here too (eg: assets/admin.html).
+- template: Webpack require path to the template. Please see the docs for details.
+- minify: {...} | false Pass html-minifier's(https://github.com/kangax/html-minifier#options-quick-reference) options as object to minify the output.
+- chunksSortMode: Allows to control how chunks should be sorted before they are included to the html. Allowed values: 'none' | 'auto' | 'dependency' |'manual' | {function} - default: 'auto'
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 

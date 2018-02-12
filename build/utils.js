@@ -22,8 +22,6 @@ exports.cssLoaders = function (options) {
     }
   }
 
-  console.log('genera CSS-LOADER', cssLoader)
-
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     console.log('------------------------')
