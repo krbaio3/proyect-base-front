@@ -1,6 +1,6 @@
 'use strict'
 
-require('./check-versions')
+require('./check-versions')()
 
 const config = require('../config')
 

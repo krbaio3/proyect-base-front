@@ -24,7 +24,9 @@
     "proyect",
     "front"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "inject-loader": "^3.0.1"
+  },
   "devDependencies": {
     "awesome-typescript-loader": "^3.4.1",
     "babel-core": "^6.26.0",

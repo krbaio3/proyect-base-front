@@ -12,9 +12,11 @@ const path = require('path')
 const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
-const webpackConfig = require('./webpack.dev.conf')
+const webpackConfig = process.env.NODE_ENV === 'production'
+  ? require('./webpack.prod.conf')
+  : require('./webpack.dev.conf')
 
-// default port where dev server listens for incoming traffic
+// default port where dev server listens
 const port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
 const autoOpenBrowser = !!config.dev.autoOpenBrowser

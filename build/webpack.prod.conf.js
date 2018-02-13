@@ -1,5 +1,7 @@
 'use strict'
 
+// Webpack syntax for production
+
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const ExtracTextPlugin = require('extract-text-webpack-plugin')
