@@ -1,5 +1,7 @@
 'use strict'
 
+// Webpack syntax base
+
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -15,7 +17,9 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],

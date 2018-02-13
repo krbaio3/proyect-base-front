@@ -1,13 +1,10 @@
 'use strict'
 
-require('./check-versions')
+require('./check-versions')()
+
+process.env.NODE_ENV = 'production'
 
 const config = require('../config')
-
-if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = JSON.parse(config.build.env.NODE_ENV)
-}
-
 const ora = require('ora')
 const rimraf = require('rimraf')
 const path = require('path')

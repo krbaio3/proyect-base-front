@@ -1,5 +1,7 @@
 'use strict'
 
+// Webpack for production
+
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const ExtracTextPlugin = require('extract-text-webpack-plugin')
@@ -11,7 +13,9 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const utils = require('./utils')
 const config = require('../config')
 
-const env = config.build.env
+const env = process.env.NODE_ENV === 'testing'
+  ? require('../config/test.env')
+  : config.build.env
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {

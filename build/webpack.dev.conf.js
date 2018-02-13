@@ -1,5 +1,7 @@
 'use strict'
 
+// Webpack for develop
+
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
