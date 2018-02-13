@@ -1,5 +1,7 @@
 'use strict'
 
+// Webpack syntax base
+
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')

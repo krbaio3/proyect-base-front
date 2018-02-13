@@ -8,13 +8,11 @@ function exec (cmd) {
   return require('child_process').execSync(cmd).toString().trim()
 }
 
-const versionRequirements = [
-  {
-    name: 'node',
-    currentVersion: semver.clean(process.version),
-    versionRequirement: packageConfig.engines.node
-  }
-]
+const versionRequirements = [{
+  name: 'node',
+  currentVersion: semver.clean(process.version),
+  versionRequirement: packageConfig.engines.node
+}]
 
 if (shell.which('npm')) {
   versionRequirements.push({
