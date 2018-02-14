@@ -2,16 +2,18 @@
 
 // Webpack syntax for production
 
+const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const ExtracTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWepackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const path = require('path')
-const baseWebpackConfig = require('./webpack.base.conf')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const utils = require('./utils')
+const baseWebpackConfig = require('./webpack.base.conf')
 const config = require('../config')
+const loadMinified = require('./loadMinified')
 
 const env = config.build.env
 
@@ -61,7 +63,10 @@ const webpackConfig = merge(baseWebpackConfig, {
         removeAttributeQuotes: true
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      // necesary for registry to service worker
+      serviceWorkerLoader: `<script>${loadMinified(path.join(__dirname,
+        './service-worker-production.js'))}</script>`
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
@@ -88,7 +93,15 @@ const webpackConfig = merge(baseWebpackConfig, {
       from: path.resolve(__dirname, '../static'),
       to: config.build.assetsSubDirectory,
       ignore: ['.*']
-    }])
+    }]),
+    // service worker caching
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'my-app',
+      filename: 'service-worker.js',
+      staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      minify: true,
+      stripPrefix: 'dist/'
+    })
   ]
 })
 

@@ -17,6 +17,7 @@
   "scripts": {
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
+    "build:report": "npm run build --report",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -67,7 +68,9 @@
     "semver": "^5.5.0",
     "shelljs": "^0.8.1",
     "style-loader": "^0.20.1",
+    "sw-precache-webpack-plugin": "^0.11.4",
     "typescript": "^2.7.1",
+    "uglify-es": "^3.3.9",
     "url-loader": "^0.6.2",
     "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.10.0",

@@ -2,13 +2,15 @@
 
 // Webpack syntax for develop
 
-const utils = require('./utils')
+const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
-const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const utils = require('./utils')
+const config = require('../config')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -35,7 +37,10 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
+      // necesary for registry to service worker
+      serviceWorkerLoader: `<script>${fs.readFileSync(path.join(__dirname,
+        './service-worker-develop.js'), 'utf-8')}</script>`
     }),
     new FriendlyErrorsPlugin()
   ]
