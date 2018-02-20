@@ -1,6 +1,6 @@
 # Proyect-base-front
 
-[![Atmira](./atmira-digital.png)](http://www.atmira.com/inicio)
+[![Atmira](./css-logo.gif)](http://www.atmira.com/inicio)
 
 Generador de proyectos proyectos Front
 
