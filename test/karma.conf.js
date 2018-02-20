@@ -11,27 +11,26 @@ let webpackConfig = require('../build/webpack.test.conf')
 
 module.exports = function(config) {
   config.set({
-    basePath: '',
-    browsers: ['Chrome'],
+     basePath: '',
     frameworks: ['jasmine'],
+    files: [
+      'index.js',
+    ],
+    reporters: ['spec'],
     preprocessors: {
-      './index.js': ['webpack', 'sourcemap']
+      './index.js': ['webpack', 'sourcemap'],
     },
-    client:{
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    webpackMiddleware: {
+      noInfo: true,
     },
-    reporters: ['progress', 'kjhtml'],
-    coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
-      fixWebpackSourcePaths: true
-    },
-    files: ['./index.js'],
     webpack: webpackConfig, 
+    reporters: ['mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
+    browsers: ['Chrome'],
     singleRun: true,
-    // Cobertura
+    concurrency: Infinity
   })
 }
