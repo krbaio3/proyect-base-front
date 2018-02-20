@@ -13,11 +13,12 @@ module.exports = function(config) {
   config.set({
     // anything named karma-* is normally auto included so you probably dont need this
     // plugins:
-    frameworks: ['jasmine', 'mocha', 'sinon-chai'],
+
+    //If use PhantomJS put 'phantomjs-shim' in frameworks and 'PhantomJS' in browsers
+    frameworks: ['jasmine', 'mocha', 'sinon-chai', 'phantomjs-shim'],
     files: [
       'index.js',
     ],
-    reporters: ['coverage-istanbul'],
     preprocessors: {
       './index.js': ['webpack', 'sourcemap'],
     },
