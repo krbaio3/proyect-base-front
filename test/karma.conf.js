@@ -11,23 +11,27 @@ let webpackConfig = require('../build/webpack.test.conf')
 
 module.exports = function(config) {
   config.set({
-    browsers: ['PhantomJS'],
+    basePath: '',
+    browsers: ['Chrome'],
     frameworks: ['jasmine'],
-    files: ['./index.js'],
     preprocessors: {
       './index.js': ['webpack', 'sourcemap']
     },
-    webpack: webpackConfig, 
+    client:{
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    },
     reporters: ['progress', 'kjhtml'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: false,
-    singleRun: false,
-    // Cobertura
     coverageIstanbulReporter: {
       reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
+    files: ['./index.js'],
+    webpack: webpackConfig, 
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    singleRun: true,
+    // Cobertura
   })
 }
