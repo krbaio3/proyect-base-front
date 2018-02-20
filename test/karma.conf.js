@@ -26,7 +26,7 @@ module.exports = function(config) {
        stats: 'errors-only',
     },
     webpack: webpackConfig, 
-    port: 9876,
+    port: 4300,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
