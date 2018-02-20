@@ -15,8 +15,6 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
-console.log('webpack ', utils.styleLoaders({ sourceMap: config.dev.cssSourceMap }))
-
 module.exports = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })

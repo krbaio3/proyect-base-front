@@ -3,31 +3,31 @@
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
 
-var webpackConfig = require('../build/webpack.test.conf')
+const mocha = require('karma-mocha-reporter')
 
-module.exports = function (config) {
+let webpackConfig = require('../build/webpack.test.conf')
+
+// console.log('variable entorno', process.argv);
+
+module.exports = function(config) {
   config.set({
-    // to run in additional browsers:
-    // 1. install corresponding karma launcher
-    //    http://karma-runner.github.io/0.13/config/browsers.html
-    // 2. add it to the `browsers` array below.
     browsers: ['PhantomJS'],
-    frameworks: ['mocha', 'sinon-chai', 'phantomjs-shim'],
-    reporters: ['spec', 'coverage'],
+    frameworks: ['jasmine'],
     files: ['./index.js'],
     preprocessors: {
       './index.js': ['webpack', 'sourcemap']
     },
-    webpack: webpackConfig,
-    webpackMiddleware: {
-      noInfo: true
+    webpack: webpackConfig, 
+    reporters: ['progress', 'kjhtml'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: false,
+    singleRun: false,
+    // Cobertura
+    coverageIstanbulReporter: {
+      reports: [ 'html', 'lcovonly' ],
+      fixWebpackSourcePaths: true
     },
-    coverageReporter: {
-      dir: './coverage',
-      reporters: [
-        { type: 'lcov', subdir: '.' },
-        { type: 'text-summary' }
-      ]
-    }
   })
 }
