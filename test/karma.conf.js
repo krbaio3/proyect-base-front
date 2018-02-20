@@ -12,7 +12,7 @@ let webpackConfig = require('../build/webpack.test.conf')
 module.exports = function(config) {
   config.set({
      basePath: '',
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'mocha', 'sinon-chai'],
     files: [
       'index.js',
     ],
