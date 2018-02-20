@@ -1,7 +1,7 @@
 
 describe('Saludo', () => {
   it('should render hola mundo', () => {
-    expect(document.getElementById('saludo').textContent)
+    expect('hola mundo')
       .to.equal('hola mundo')
   })
 })
