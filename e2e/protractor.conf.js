@@ -10,7 +10,7 @@ const rimraf = require('rimraf')
 
 exports.config = {
   allScriptsTimeout: 11000,
-  specs: './spects/example.e2e.spec.js',
+  specs: './spects/*.e2e.spec.js',
   capabilities: {
     browserName: 'chrome'
   },

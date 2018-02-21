@@ -21,11 +21,7 @@
     "pree2e": "webdriver-manager update",
     "e2e": "protractor e2e/protractor.conf.js"
   },
-  "keywords": [
-    "base",
-    "proyect",
-    "front"
-  ],
+  "keywords": ["base", "proyect", "front"],
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.1.2",
@@ -88,6 +84,7 @@
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.4.0",
     "phantomjs-prebuilt": "^2.1.16",
+    "protractor": "^5.3.0",
     "protractor-html-reporter-2": "^1.0.2",
     "rimraf": "^2.6.2",
     "semver": "^5.5.0",
@@ -108,9 +105,5 @@
     "node": ">= 6.0.0",
     "npm": ">= 5.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
 }
