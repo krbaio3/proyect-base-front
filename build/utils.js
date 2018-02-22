@@ -12,8 +12,6 @@ exports.assetsPath = function (_path) {
 }
 
 exports.cssLoaders = function (options) {
-  console.log('options --', options)
-  console.log('process.env.NODE_ENV  ', process.env.NODE_ENV)
   options = options || {}
 
   const cssLoader = {
@@ -26,10 +24,6 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    console.log('------------------------')
-    console.log('Loader => ', loader)
-    console.log('LoaderOptions => ', loaderOptions)
-
     const loaders = [cssLoader]
     if (loader) {
       loaders.push({
@@ -63,7 +57,6 @@ exports.cssLoaders = function (options) {
 
 // Generate loaders for standalone style files
 exports.styleLoaders = function (options) {
-  console.log('entra => ', options)
   const output = []
   const loaders = exports.cssLoaders(options)
   for (const extension in loaders) {

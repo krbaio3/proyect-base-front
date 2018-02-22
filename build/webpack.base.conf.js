@@ -5,6 +5,7 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
+const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -12,7 +13,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.ts'
+    app: './src/main.ts',
   },
   output: {
     path: config.build.assetsRoot,
@@ -27,22 +28,27 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.(tsx?|jsx?)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src'), resolve('test')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
+      // {
+      //   test: /\.(tsx?)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'awesome-typescript-loader',
+      //   options: {
+      //     useBabel: true
+      //   }
+      // },
       {
-        test: /\.(tsx?|jsx?)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
-      {
-        test: /\.(tsx?)$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          useBabel: true
-        }
+        loader: '@ngtools/webpack'
       },
       {
         test: /\.jsx?$/,
